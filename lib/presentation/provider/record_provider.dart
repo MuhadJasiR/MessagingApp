@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
+
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:chat_app/presentation/chat/chat_screen.dart';
-import 'package:file_picker/file_picker.dart';
+
 import 'package:flutter/material.dart';
 
 class RecordProvider with ChangeNotifier {

@@ -1,13 +1,10 @@
-import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:chat_app/presentation/chat/chat_screen.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
 
 class ChatProvider extends ChangeNotifier {
   final List<Map<String, dynamic>> _chatMessages = [];
@@ -58,7 +55,7 @@ class ChatProvider extends ChangeNotifier {
       OpenFile.open(_filePath!);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No file selected')),
+        const SnackBar(content: Text('No file selected')),
       );
     }
   }
