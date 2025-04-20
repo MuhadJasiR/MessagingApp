@@ -4,31 +4,27 @@ import 'package:chat_app/core/const_size.dart';
 import 'package:chat_app/core/theme.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController usernameController = TextEditingController();
-
+class _RegisterPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
 
   showInputValue() {
-    String userName = usernameController.text;
     String email = emailController.text;
     String password = passwordController.text;
 
-    log("Username : $userName, Email : $email, Password : $password");
+    log("Email : $email, Password : $password");
   }
 
   @override
   void dispose() {
-    usernameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -45,7 +41,6 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              _buildTextInput("Username", Icons.person, usernameController),
               _buildTextInput("Email", Icons.mail, emailController),
               _buildTextInput("Password", Icons.password, passwordController,
                   isPassword: true),
@@ -83,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           padding: const EdgeInsets.symmetric(vertical: 15)),
       child: const Text(
-        "Register",
+        "Login",
         style: TextStyle(color: Colors.grey),
       ),
     );

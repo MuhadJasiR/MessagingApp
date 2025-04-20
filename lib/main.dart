@@ -1,9 +1,6 @@
-import 'package:chat_app/chat_page.dart';
 import 'package:chat_app/core/theme.dart';
-import 'package:chat_app/message_page.dart';
-import 'package:chat_app/presentation/home/home_screen.dart';
-import 'package:chat_app/register_page.dart';
-import 'package:chat_app/sample.dart';
+import 'package:chat_app/login_page.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: AppTheme.darkTheme,
-      home: RegisterPage(),
+      home: const LoginPage(),
     );
   }
 }
