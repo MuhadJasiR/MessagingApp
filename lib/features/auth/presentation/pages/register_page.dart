@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:chat_app/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:chat_app/features/auth/presentation/widgets/auth_button.dart';
 import 'package:chat_app/features/auth/presentation/widgets/auth_input_field.dart';
@@ -21,14 +19,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final TextEditingController passwordController = TextEditingController();
 
-  showInputValue() {
-    String userName = usernameController.text;
-    String email = emailController.text;
-    String password = passwordController.text;
-
-    log("Username : $userName, Email : $email, Password : $password");
-  }
-
   @override
   void dispose() {
     usernameController.dispose();
@@ -39,9 +29,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _onRegister() {
     BlocProvider.of<AuthBloc>(context).add(RegisterEvent(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-        username: usernameController.text.trim()));
+        email: emailController.text,
+        password: passwordController.text,
+        username: usernameController.text));
   }
 
   @override
@@ -76,11 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: CircularProgressIndicator(),
                     );
                   }
-                  return AuthButton(
-                      title: "Register",
-                      onPressed: () {
-                        _onRegister();
-                      });
+                  return AuthButton(title: "Register", onPressed: _onRegister);
                 },
                 listener: (context, state) {
                   if (state is AuthSuccess) {

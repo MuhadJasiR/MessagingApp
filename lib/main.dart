@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: AppTheme.darkTheme,
-        home: const LoginPage(),
+        home: const RegisterPage(),
         routes: {
           "/login": (_) => const LoginPage(),
           "/register": (_) => const RegisterPage(),
